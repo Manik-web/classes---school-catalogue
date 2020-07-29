@@ -1,0 +1,81 @@
+class School {
+  constructor(name, level, numberOfStudents) {
+    this._name = name;
+    this._level = level;
+    this._numberOfStudents = numberOfStudents;
+  }
+  
+  get name() {
+    return this._name}
+  
+  get level() {
+    return this._level}
+  
+  get numberOfStudents() {
+    return this._numberOfStudents
+  }
+  
+ set numberOfStudents(newNumberOfStudents) {
+    if ((typeof newNumberOfStudents) !== "number") {
+      console.log('Invalid input: numberOfStudents must be set to a Number.');
+      
+    } else {
+     this._numberOfStudents = newNumberOfStudents;
+    }
+  }
+  
+ quickFacts() {
+    console.log(`${this.name} educates ${this.numberOfStudents} students at the ${this.level} schoool level.`)}
+  
+  static pickSubstituteTeacher(substituteTeachers) {
+    return substituteTeachers[Math.floor(Math.random() * (substituteTeachers.length - 1))]
+  }
+  
+}
+
+class PrimarySchool extends School{
+  constructor(name, level, numberOfStudents, pickupPolicy){
+    super(name,level,numberOfStudents);
+      this._name = name;
+      this._level = level;
+      this._numberOfStudents = numberOfStudents;
+      this._pickupPolicy =pickupPolicy;
+    }
+    get pickupPolicy(){
+      return this._pickupPolicy;
+    }
+  }
+
+  class HighSchool extends School{
+    constructor(name, level, numberOfStudents, sportsTeams){
+      super(name,level, numberOfStudents);
+      this._name = name;
+      this._level = level;
+      this._numberOfStudents = numberOfStudents;
+      this._sportsTeams = sportsTeams;     
+      }
+       get sportsTeams(){
+        return this._sportsTeams;
+        }
+        }
+
+
+
+
+
+const broadstones = new HighSchool('Broadstones','High',15);
+const stjosephs = new PrimarySchool('St Josephs','Primary',415, 'mummy picks up');
+
+stjosephs.quickFacts();
+broadstones.quickFacts();
+/*
+const lorrainehansbury = new PrimarySchool('Lorraine hansbury','Primary',514,'Students must be picked up by a parent, guardian, or a family member over the age of 13.');
+lorrainehansbury.quickFacts();
+console.log(lorrainehansbury.pickupPolicy);
+*/
+//console.log(School.pickSubstituteTeacher(['Jamal Crawford', 'Lou Williams', 'J. R. Smith', 'James Harden', 'Jason Terry', 'Manu Ginobli']));
+/*
+const alSmith = new HighSchool('Al E. Smith','High', 415,['Baseball','Baseketball','Volleyball','Track and Field'] );
+console.log(alSmith.sportsTeams);*/
+
+//console.log(stjosephs.pickupPolicy);
